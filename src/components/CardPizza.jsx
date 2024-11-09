@@ -1,7 +1,7 @@
 // CardPizza.js
 
 import { Button, Card } from "react-bootstrap";
-import formatNumber from "/src/utils/Format";
+import formatNumber from "/src/utils/formateo/Format";
 import ListGroup from "react-bootstrap/ListGroup";
 
 const CardPizza = () => {
