@@ -1,5 +1,5 @@
 import { Nav, Navbar } from "react-bootstrap";
-import formatNumber from "../Utils/formateo/Format"
+import formatNumber from "../../Utils/formateo/Format"
 import pizzaLogo from "/src/assets/img/logo-white.png";
 
 const NavbarPizza = () => {

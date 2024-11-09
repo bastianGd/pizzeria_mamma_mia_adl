@@ -1,8 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
-import NavbarPizza from "./components/NavbarPizza";
+import Home from "./components/home/Home";
+import Footer from "./components/footer/Footer";
+import NavbarPizza from "./components/navbar/NavbarPizza";
 
 
 function App() {
