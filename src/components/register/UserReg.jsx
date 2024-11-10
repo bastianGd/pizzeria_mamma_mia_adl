@@ -1,12 +1,12 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const UserReg = () => {
+const UserReg = ({ handleSubmit, handleChange, user }) => {
     return (
         <>
-            <div onChange={handleChange, handleSubmit, user} className="d-flex justify-content-center align-items-center my-5">
-                <Form onSubmit={handleSubmit} className="my-5" style={{ width: 650 }}>
+            <div className="d-flex justify-content-center align-items-center my-5">
+                <Form onSubmit={handleSubmit}  className="my-5" style={{ width: 650 }}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label><strong>Dirección de correo electrónico</strong></Form.Label>
                         <Form.Control
@@ -24,10 +24,9 @@ const UserReg = () => {
                             type="password"
                             placeholder="Ingresa tu contraseña"
                             name="userPassword"
-                            minLength={6}
-                            value={user.userpassword}
+                            value={user.userPassword}
                             onChange={handleChange}
-
+                            minLength={6}
                         />
                     </Form.Group>
 
@@ -36,10 +35,9 @@ const UserReg = () => {
                         <Form.Control
                             type="password"
                             placeholder="Reingresa tu contraseña"
-                            name="repeatPassword"
-                            value={user.repeatPassword}
+                            name="passwordRepeat" // Cambia el nombre aquí para coincidir
+                            value={user.passwordRepeat}
                             onChange={handleChange}
-
                         />
                     </Form.Group>
 
