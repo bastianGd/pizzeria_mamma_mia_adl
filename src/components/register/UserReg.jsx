@@ -35,7 +35,7 @@ const UserReg = ({ handleSubmit, handleChange, user }) => {
                         <Form.Control
                             type="password"
                             placeholder="Reingresa tu contraseña"
-                            name="passwordRepeat" // Cambia el nombre aquí para coincidir
+                            name="passwordRepeat"
                             value={user.passwordRepeat}
                             onChange={handleChange}
                         />
