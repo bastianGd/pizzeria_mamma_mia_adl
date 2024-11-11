@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UserReg from "./UserReg";
+import Login from "../login/Login";
 import Validacion from "../../Utils/validacion/Validacion";
 import Swal from 'sweetalert2';
 
@@ -10,7 +11,7 @@ const FormUser = () => {
         passwordRepeat: "",
     });
 
-    const [error, setError] = useState(""); // Un solo error
+    const [error, setError] = useState(""); 
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -40,7 +41,7 @@ const FormUser = () => {
             [e.target.name]: e.target.value,
         }));
 
-        setError(""); // Limpiar error al cambiar el campo
+        setError("");
     };
 
     return (
