@@ -1,35 +1,35 @@
 import { useState } from "react";
-import UserReg from "./UserReg";
-import Validacion from "../../Utils/validacion/Validacion";
 import Swal from 'sweetalert2';
+import Login from "../login/FormLog"; // 
+import Validacion from "../../Utils/validacion/Validacion";
 
-const FormUser = () => {
+const UserLog = () => {
     const [user, setUser] = useState({
         userEmail: "",
         userPassword: "",
-        passwordRepeat: "",
     });
 
-    const [error, setError] = useState(""); 
+    const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
+        // Validar los datos del usuario
         const validationError = Validacion(user);
         if (validationError) {
-            setError(validationError);
+            setError(validationError); 
         } else {
-            setError("");
+            setError(""); 
             Swal.fire({
                 icon: 'success',
-                title: 'Cuenta creada satisfactoriamente',
-                text: '¡Tu cuenta fue creada con éxito!',
-                confirmButtonText: 'Muchas Gracias'
+                title: 'Inicio de sesión exitoso',
+                text: '¡Has iniciado sesión correctamente!',
+                confirmButtonText: 'Aceptar'
             });
+            
             setUser({
                 userEmail: "",
                 userPassword: "",
-                passwordRepeat: ""
             });
         }
     };
@@ -40,11 +40,11 @@ const FormUser = () => {
             [e.target.name]: e.target.value,
         }));
 
-        setError("");
+        setError(""); 
     };
 
     return (
-        <UserReg
+        <Login
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             user={user}
@@ -53,4 +53,4 @@ const FormUser = () => {
     );
 };
 
-export default FormUser;
+export default UserLog;

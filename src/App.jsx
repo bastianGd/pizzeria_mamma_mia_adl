@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/footer/Footer";
 // import FormUser from "./components/register/FormUser";
 import NavbarPizza from "./components/navbar/NavbarPizza";
-import Login from "./components/login/UserLog";
 import UserLog from "./components/login/UserLog";
 
 function App() {
