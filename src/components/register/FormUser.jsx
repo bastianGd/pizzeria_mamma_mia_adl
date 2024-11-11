@@ -1,33 +1,55 @@
-import UserReg from "./UserReg";
 import { useState } from "react";
+import UserReg from "./UserReg";
+import Validacion from "../../Utils/validacion/Validacion";
+import Swal from 'sweetalert2';
 
 const FormUser = () => {
-    const [userReg, setUserReg] = useState({
+    const [user, setUser] = useState({
         userEmail: "",
         userPassword: "",
         passwordRepeat: "",
     });
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-    }
+    const [error, setError] = useState(""); // Un solo error
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const validationError = Validacion(user);
+        if (validationError) {
+            setError(validationError);
+        } else {
+            setError("");
+            Swal.fire({
+                icon: 'success',
+                title: 'Cuenta creada satisfactoriamente',
+                text: '¡Tu cuenta fue creada con éxito!',
+                confirmButtonText: 'Muchas Gracias'
+            });
+            setUser({
+                userEmail: "",
+                userPassword: "",
+                passwordRepeat: ""
+            });
+        }
+    };
 
     const handleChange = (e) => {
-        setUserReg((copyUser) => ({
-            ...copyUser,
+        setUser((prevUser) => ({
+            ...prevUser,
             [e.target.name]: e.target.value,
         }));
+
+        setError(""); // Limpiar error al cambiar el campo
     };
 
     return (
-        <>
-            <UserReg
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                user={userReg}
-            />
-        </>
+        <UserReg
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            user={user}
+            error={error}
+        />
     );
 };
 
